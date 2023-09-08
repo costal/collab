@@ -1,0 +1,81 @@
+{
+  "name": "collab-cli",
+  "version": "0.0.0",
+  "description": "A chat tool with collab toolchain",
+  "author": "Leo Costa",
+  "bin": {
+    "collab": "./bin/run"
+  },
+  "homepage": "https://github.com/costal/chanellob",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "repository": "costal/chanellob",
+  "files": [
+    "/bin",
+    "/dist",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "dependencies": {
+    "@oclif/core": "^1.23.0",
+    "@oclif/plugin-help": "^5",
+    "@oclif/plugin-plugins": "^2.1.12",
+    "ink": "^3.2.0",
+    "ink-select-input": "^4.2.1",
+    "ink-spinner": "^4.0.3",
+    "node-ipc": "^11.1.0",
+    "react": "^17.0.2",
+    "ws": "^8.12.0"
+  },
+  "devDependencies": {
+    "@oclif/test": "^2.2.19",
+    "@types/chai": "^4",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.18.11",
+    "@types/node-ipc": "^9.2.0",
+    "@types/react": "^18.0.27",
+    "@types/ws": "^8.5.4",
+    "chai": "^4",
+    "esbuild": "^0.16.17",
+    "eslint": "^7.32.0",
+    "eslint-config-oclif": "^4",
+    "eslint-config-oclif-typescript": "^1.0.3",
+    "glob": "^8.0.3",
+    "mocha": "^9",
+    "oclif": "^3",
+    "shx": "^0.3.3",
+    "ts-node": "^10.9.1",
+    "tsc-alias": "^1.8.2",
+    "tsconfig-paths": "^4.1.2",
+    "tslib": "^2.4.1",
+    "typescript": "^4.9.4"
+  },
+  "oclif": {
+    "bin": "collab",
+    "dirname": "collab",
+    "commands": "./dist/commands",
+    "plugins": [
+      "@oclif/plugin-help",
+      "@oclif/plugin-plugins",
+      "@oclif/plugin-autocomplete"
+    ],
+    "topicSeparator": " "
+  },
+  "scripts": {
+    "build": "shx rm -rf dist && tsc -b && tsc-alias",
+    "lint": "eslint . --ext .ts --config .eslintrc",
+    "postpack": "shx rm -f oclif.manifest.json",
+    "posttest": "yarn lint",
+    "prepack": "yarn build && oclif manifest && oclif readme",
+    "test": "mocha --forbid-only \"test/**/*.test.ts\"",
+    "version": "oclif readme && git add README.md"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "bugs": "https://github.com/costal/chanellob/issues",
+  "keywords": [
+    "oclif"
+  ],
+  "types": "dist/index.d.ts"
+}
