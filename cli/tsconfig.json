@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+	  "jsx": "react",
+    "declaration": true,
+    "importHelpers": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "outDir": "dist",
+    "rootDir": "src",
+    "strict": true,
+    "target": "es2019",
+    "baseUrl": "./src",
+    "paths": {
+      "@commands/*": ["commands/*"],
+      "@models/*": ["models/*"],
+      "@views/*": ["views/*"],
+      "@services/*": ["services/*"],
+      "@utils/*": ["utils/*"]
+    }
+  },
+  "include": [
+    "src/**/*"
+  ]
+}
